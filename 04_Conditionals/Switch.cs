@@ -63,14 +63,14 @@ namespace _04_Conditionals
                     break;
             }
             Console.WriteLine(output);
-            //Switch Expression 
-            //output = action switch
-            //{
-            //    0 => "Case 0",
-            //    1 => "Case 1",
-            //    2 => "Case 2",
-            //    _ => "Default Case",
-            //};
+            // Switch Expression
+            output = action switch
+            {
+                0 => "Case 0",
+                1 => "Case 1",
+                2 => "Case 2",
+                _ => "Default Case",
+            };
             Console.WriteLine(output);
         }
            
