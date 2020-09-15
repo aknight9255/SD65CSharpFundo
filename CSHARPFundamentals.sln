@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04_Conditionals", "04_Condi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_Loops", "05_Loops\05_Loops.csproj", "{420EFB9D-4189-468F-BCEA-798F14DAB61C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Inheritance_Classes", "06_Inheritance_Classes\06_Inheritance_Classes.csproj", "{E5D6DEC8-016B-4092-B64A-F9A06A616B0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Inheritance_Tests", "06_Inheritance_Tests\06_Inheritance_Tests.csproj", "{5F5E4A21-B776-432E-8F22-20E262B5ABB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{420EFB9D-4189-468F-BCEA-798F14DAB61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{420EFB9D-4189-468F-BCEA-798F14DAB61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{420EFB9D-4189-468F-BCEA-798F14DAB61C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5D6DEC8-016B-4092-B64A-F9A06A616B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D6DEC8-016B-4092-B64A-F9A06A616B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D6DEC8-016B-4092-B64A-F9A06A616B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D6DEC8-016B-4092-B64A-F9A06A616B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F5E4A21-B776-432E-8F22-20E262B5ABB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F5E4A21-B776-432E-8F22-20E262B5ABB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F5E4A21-B776-432E-8F22-20E262B5ABB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F5E4A21-B776-432E-8F22-20E262B5ABB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
