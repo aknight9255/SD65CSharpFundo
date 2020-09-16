@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Inheritance_Classes", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06_Inheritance_Tests", "06_Inheritance_Tests\06_Inheritance_Tests.csproj", "{5F5E4A21-B776-432E-8F22-20E262B5ABB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_RepositoryPattern_Repository", "07_RepositoryPattern_Repository\07_RepositoryPattern_Repository.csproj", "{C15C62CE-E03B-4937-9456-CE23AB91F354}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_RepositoryPattern_Tests", "07_RepositoryPattern_Tests\07_RepositoryPattern_Tests.csproj", "{E2BAD54D-86C0-43AD-95D3-12D3D914AC9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{5F5E4A21-B776-432E-8F22-20E262B5ABB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F5E4A21-B776-432E-8F22-20E262B5ABB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F5E4A21-B776-432E-8F22-20E262B5ABB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15C62CE-E03B-4937-9456-CE23AB91F354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15C62CE-E03B-4937-9456-CE23AB91F354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15C62CE-E03B-4937-9456-CE23AB91F354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15C62CE-E03B-4937-9456-CE23AB91F354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2BAD54D-86C0-43AD-95D3-12D3D914AC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2BAD54D-86C0-43AD-95D3-12D3D914AC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2BAD54D-86C0-43AD-95D3-12D3D914AC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2BAD54D-86C0-43AD-95D3-12D3D914AC9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

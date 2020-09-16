@@ -11,7 +11,7 @@ namespace _07_RepositoryPattern_Repository
         protected readonly List<StreamingContent> _contentDirectory = new List<StreamingContent>();
         //CRUD Create Read Update Delete
 
-
+        //Create
         public bool AddContentToDirectory(StreamingContent content)
         {
             int startingCount = _contentDirectory.Count;
@@ -19,6 +19,10 @@ namespace _07_RepositoryPattern_Repository
             bool wasAdded = (_contentDirectory.Count > startingCount) ? true : false;
             return wasAdded;
         }
-
+        //READ
+        public List<StreamingContent> GetContents()
+        {
+            return _contentDirectory;
+        }
     }
 }
