@@ -39,6 +39,47 @@ namespace _07_RepositoryPattern_Tests
             bool directoryHasContent = listOfContents.Contains(newObject);
             Assert.IsTrue(directoryHasContent);
         }
+
+        private StreamingContentRepository _repo;
+        private StreamingContent _content;
+        [TestInitialize]
+        public void Arrange()
+        {
+            _repo = new StreamingContentRepository();
+            _content = new StreamingContent("Oceans 8", "do crime?", 100, "I do not know", true, GenreType.Action);
+            _repo.AddContentToDirectory(_content);
+        }
+        [TestMethod]
+        public void GetbyTitle_ShouldReturnCorrectContent()
+        {
+            //Arrange 
+            //ACT
+            StreamingContent searchResult = _repo.GetContentByTitle("oceans 8");
+            //ASSERT 
+            Assert.AreEqual(_content, searchResult);
+        }
+
+        [TestMethod]
+        public void UpdateExistingContent_ShouldReturnTrue()
+        {
+            //arrange 
+            StreamingContent updatedContent = new StreamingContent("Italian Job", "do crime? in Italy", 100, "I do not know", true, GenreType.Action);
+            //ACT 
+            bool updateResult = _repo.UpdateExistingContent("oceans 8", updatedContent);
+            //ASSERT
+            Assert.IsTrue(updateResult);
+        }
+
+        [TestMethod]
+        public void DeleteExisingContent_ShouldReturnTrue()
+        {
+            //arrange
+            StreamingContent foundContent = _repo.GetContentByTitle("Oceans 8");
+            // ACT
+            bool removeResult = _repo.DeleteExistingContent(foundContent);
+            //Assert 
+            Assert.IsTrue(removeResult);
+        }
     }
 }
 
