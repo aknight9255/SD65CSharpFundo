@@ -15,7 +15,7 @@ namespace _07_RepositoryPattern_Tests
             Movie movieObject = new Movie();
             Show showObject = new Show();
             Episode episodeObject = new Episode();
-            showObject.Episodes = new List<Episode>();
+            //showObject.Episodes = new List<Episode>();
             showObject.Episodes.Add(episodeObject);
             Movie newMovie = new Movie("Venom", "The best romance movie of our age", 9005, "pg-13", true, GenreType.RomCom, 132);
 
