@@ -47,7 +47,6 @@ namespace _07_RepositoryPattern_Repository
                 oldContent.Description = newContent.Description;
                 oldContent.StarRating = newContent.StarRating;
                 oldContent.MaturityRatin = newContent.MaturityRatin;
-                oldContent.IsFamilyFriendly = newContent.IsFamilyFriendly;
                 oldContent.TypeOfGenre = newContent.TypeOfGenre;
 
                 return true;
