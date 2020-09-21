@@ -22,6 +22,8 @@ namespace _07_RepositoryPattern_Repository
     public class StreamingContent
     {
         public string Title { get; set; }
+
+
         public string Description { get; set; }
         public float StarRating { get; set; }
         public MaturityRating MaturityRatin { get; set; }

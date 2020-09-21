@@ -12,6 +12,7 @@ namespace _08_StreamingContent_Console.UI
         private readonly StreamingRepositorycs _streamingRepo = new StreamingRepositorycs();
         public void Run()
         {
+            SeedContent();
             RunMenu();
         }
 
@@ -131,13 +132,44 @@ namespace _08_StreamingContent_Console.UI
             //Take EACH item and display property values
             foreach(StreamingContent content in listOfContent)
             {
-                Console.WriteLine($"{content.Title} \n" +
-                    $"{content.Description} \n" +
-                    $"-----------------------");
+                DisplaySimple(content);
             }
             //Pause the program so the user can see the printed objects
+            Console.WriteLine("Press any key to continue....");
+            Console.ReadKey();
             //GOAL: Show all items in our fake database 
         }
+
+        private void DisplaySimple(StreamingContent content)
+        {
+            Console.WriteLine($"{content.Title} \n" +
+                    $"{content.Description} \n" +
+                    $"-----------------------");
+        }
+        private void DisplayAllProps(StreamingContent content)
+        {
+            Console.WriteLine($"Title: {content.Title} \n" +
+                $"Description: {content.Description} \n" +
+                $"Genre: {content.TypeOfGenre} \n" +
+                $"Stars: {content.StarRating} \n" +
+                $"Content is Family Friendly: {content.IsFamilyFriendly} \n" +
+                $"Maturity Rating: {content.MaturityRatin}");
+        }
+        private void SeedContent()
+        {
+            var titleOne = new StreamingContent("Toy Story", "Toys have a story", 4.5f, MaturityRating.PG, false, GenreType.Bromance);
+            var titleTwo = new StreamingContent("Star Wars", "Stars at War", 10f, MaturityRating.PG_13, false, GenreType.Documentary);
+            var titleThree = new StreamingContent("Baby Driver", "Your driver for the night is a baby", 48f, MaturityRating.MA, false, GenreType.Documentary);
+            var titleFour = new StreamingContent("Bananas", "The Banana strikes back", 20f, MaturityRating.PG, false, GenreType.SciFi);
+            var titleFive = new StreamingContent("Harry Potter", "Harry Makes Pottery", 42f, MaturityRating.PG, false, GenreType.Fantasy);
+            _streamingRepo.AddContentToDirectory(titleOne);
+            _streamingRepo.AddContentToDirectory(titleTwo);
+            _streamingRepo.AddContentToDirectory(titleThree);
+            _streamingRepo.AddContentToDirectory(titleFour);
+            _streamingRepo.AddContentToDirectory(titleFive);
+        }
+
+
 
 
     }
