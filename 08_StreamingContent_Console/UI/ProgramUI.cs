@@ -32,6 +32,7 @@ namespace _08_StreamingContent_Console.UI
                 {
                     case "1":
                         //Show All
+                        ShowAllContent();
                         break;
                     case "2":
                         //Find by Title
@@ -122,6 +123,22 @@ namespace _08_StreamingContent_Console.UI
             //Pass that to the add method in our repo 
             _streamingRepo.AddContentToDirectory(content);
         }
+        private void ShowAllContent()
+        {
+            Console.Clear();
+            //GET the items from our fake database 
+            List<StreamingContent> listOfContent = _streamingRepo.GetContents();
+            //Take EACH item and display property values
+            foreach(StreamingContent content in listOfContent)
+            {
+                Console.WriteLine($"{content.Title} \n" +
+                    $"{content.Description} \n" +
+                    $"-----------------------");
+            }
+            //Pause the program so the user can see the printed objects
+            //GOAL: Show all items in our fake database 
+        }
+
 
     }
 }
