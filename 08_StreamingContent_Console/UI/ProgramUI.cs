@@ -37,6 +37,7 @@ namespace _08_StreamingContent_Console.UI
                         break;
                     case "2":
                         //Find by Title
+                        ShowContentByTitle();
                         break;
                     case "3":
                         //Add New
@@ -44,6 +45,7 @@ namespace _08_StreamingContent_Console.UI
                         break;
                     case "4":
                         //Remove
+                        RemoveContentFromList();
                         break;
                     case "5":
                         //Exit
@@ -138,6 +140,66 @@ namespace _08_StreamingContent_Console.UI
             Console.WriteLine("Press any key to continue....");
             Console.ReadKey();
             //GOAL: Show all items in our fake database 
+        }
+        private void ShowContentByTitle()
+        {
+            Console.Clear();
+            //GOAL? Show only one object -> found by title
+            //Step one Get title from user
+            Console.WriteLine("Please enter the title: ");
+            string title = Console.ReadLine();
+            //use that title to find the ONE object -> we have built this method
+            StreamingContent foundContent = _streamingRepo.GetContentByTitle(title);
+            //If object found display data / if not inform user that title does not exist
+            if(foundContent != null)
+            {
+                DisplayAllProps(foundContent);
+            }
+            else
+            {
+                Console.WriteLine("There are no titles that matched the one you gave me. \n" +
+                    "Do better");
+            }
+
+            Console.WriteLine("Press any key to continue.....");
+            Console.ReadKey();
+        }
+        private void RemoveContentFromList()
+        {
+            //Ask the user which one they want to remove 
+            Console.WriteLine("Which item would you like to remove?");
+            //need a list of the items 
+            List<StreamingContent> contentList = _streamingRepo.GetContents();
+            int count = 0;
+            foreach(var content in contentList)
+            {
+                count++;
+                Console.WriteLine($"{count}) {content.Title}");
+            }
+            //take in user response 
+            int targetContentID = int.Parse(Console.ReadLine());
+            int correctIndex = targetContentID - 1;
+            if(correctIndex >= 0 && correctIndex < contentList.Count)
+            {
+                StreamingContent desiredContent = contentList[correctIndex];
+                //Remove that item 
+                if (_streamingRepo.DeleteExistingContent(desiredContent))
+                {
+                    Console.WriteLine($"{desiredContent.Title} successfully removed!");
+                }
+                else
+                {
+                    Console.WriteLine("I'm sorry, Dave. I'm afriad I can't do that.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("INVALID OPTION");
+            }
+            Console.WriteLine("Press any key to continue....");
+            Console.ReadKey();
+
+        
         }
 
         private void DisplaySimple(StreamingContent content)
