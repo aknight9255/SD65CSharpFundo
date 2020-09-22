@@ -57,7 +57,7 @@ namespace _07_RepositoryPattern_Repository
         public GenreType TypeOfGenre { get; set; }
 
         public StreamingContent() { }
-        public StreamingContent(string title,string description,float starRating, MaturityRating mRating, GenreType tOG)
+        public StreamingContent(string title, string description, float starRating, MaturityRating mRating, GenreType tOG)
         {
             Title = title;
             Description = description;
