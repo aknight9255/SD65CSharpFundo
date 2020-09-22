@@ -21,6 +21,11 @@ namespace _08_StreamingContent_Console.UI
             bool continueToRun = true;
             while (continueToRun)
             {
+                //add one of the following 
+                //Get all shows 
+                //Get all movies 
+                //get show/movie by title
+
                 Console.Clear();
                 Console.WriteLine("Enter the number of the option you'd like to select: \n" +
                     "1) Show all streaming content \n" +
