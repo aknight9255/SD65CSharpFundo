@@ -49,8 +49,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Currency\CurrencyClasses.cs" />
+    <Compile Include="Currency\ICurrency.cs" />
+    <Compile Include="Currency\Transaction.cs" />
     <Compile Include="IFruitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CurrencyTests.cs" />
+    <Compile Include="TransactionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

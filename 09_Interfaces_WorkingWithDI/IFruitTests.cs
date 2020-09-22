@@ -50,5 +50,49 @@ namespace _09_Interfaces_WorkingWithDI
             var output = GetFruitName(grape);
             Console.WriteLine(output);
         }
+        [TestMethod]
+        public void TypeOfInstance()
+        {
+            var fruitSalad = new List<IFruit>
+            {
+                new Grape(),
+                new Orange(true),
+                new Banana(),
+                new Orange(),
+                new Banana(),
+                new Grape(),
+                new Orange(true)
+            };
+            Console.WriteLine("Is the orange peeled?");
+            foreach(var oneFruit in fruitSalad)
+            {
+                if(oneFruit is Orange orangeObject)
+                {
+                    if (orangeObject.IsPeeled)
+                    {
+                        Console.WriteLine("This is a peeled orange");
+                        orangeObject.Squeeze();
+                    }
+                    else
+                    {
+                        Console.WriteLine("HEY! Dont squeeze that yet! It isnt peeled?");
+                    }
+                }
+                else if (oneFruit.GetType() == typeof(Grape))
+                {
+                    Console.WriteLine($"This is a {oneFruit.Name}");
+                    var grape = (Grape)oneFruit;
+                }
+                else if (oneFruit.IsPeeled)
+                {
+                    Console.WriteLine("That is a peeled banana");
+                }
+                else
+                {
+                    Console.WriteLine("One unpeeled banana...Weird to see in a fruit salad.");
+                }
+            }
+        }
+
     }
 }
