@@ -47,11 +47,27 @@ namespace _07_RepositoryPattern_Repository
             // return that list 
             return allShows;
         }
+        public List<Movie> GetAllMovies()
+        {
+            // Make a space to save all shows
+            List<Movie> allShows = new List<Movie>();
+            //pull one item and see if it is a show 
+            //make sure to save that off to the side 
+            foreach (StreamingContent content in _contentDirectory)
+            {
+                if (content is Movie)
+                {
+                    allShows.Add((Movie)content);
+                }
+            }
+            // return that list 
+            return allShows;
+        }
 
         //Write GetAllMovies
         //GetByOtherParameters ex GetAllFamilyFriendlyMovies
         // Get Shows with over x episode
-        
+
         //going to pass in a value (x) that 
         //single out all shows from my list(aka fake database) 
         // now I have a list of shows

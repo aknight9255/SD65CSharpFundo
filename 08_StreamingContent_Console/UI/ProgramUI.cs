@@ -32,7 +32,8 @@ namespace _08_StreamingContent_Console.UI
                     "2) Find by title \n" +
                     "3) Add new content \n" +
                     "4) Remove content \n" +
-                    "5) Exit");
+                    "5) Show All Movies \n" +
+                    "6) Exit");
                 string userInput = Console.ReadLine();
                 switch (userInput)
                 {
@@ -53,6 +54,10 @@ namespace _08_StreamingContent_Console.UI
                         RemoveContentFromList();
                         break;
                     case "5":
+                        //Show All Movies
+                        ShowAllMovies();
+                        break;
+                    case "6":
                         //Exit
                         continueToRun = false;
                         break;
@@ -206,6 +211,18 @@ namespace _08_StreamingContent_Console.UI
 
         
         }
+        private void ShowAllMovies()
+        {
+            Console.Clear();
+            //GET all the movies 
+            List<Movie> listOfMovie = _streamingRepo.GetAllMovies();
+            foreach(var oneMovie in listOfMovie)
+            {
+                DisplaySimple(oneMovie);
+            }
+            Console.WriteLine("Press any key to continue....");
+            Console.ReadKey();
+        }
 
         private void DisplaySimple(StreamingContent content)
         {
@@ -224,11 +241,20 @@ namespace _08_StreamingContent_Console.UI
         }
         private void SeedContent()
         {
-            var titleOne = new StreamingContent("Toy Story", "Toys have a story", 4.5f, MaturityRating.PG, false, GenreType.Bromance);
-            var titleTwo = new StreamingContent("Star Wars", "Stars at War", 10f, MaturityRating.PG_13, false, GenreType.Documentary);
-            var titleThree = new StreamingContent("Baby Driver", "Your driver for the night is a baby", 48f, MaturityRating.MA, false, GenreType.Documentary);
-            var titleFour = new StreamingContent("Bananas", "The Banana strikes back", 20f, MaturityRating.PG, false, GenreType.SciFi);
-            var titleFive = new StreamingContent("Harry Potter", "Harry Makes Pottery", 42f, MaturityRating.PG, false, GenreType.Fantasy);
+            var titleOne = new StreamingContent("Toy Story", "Toys have a story", 4.5f, MaturityRating.PG, GenreType.Bromance);
+            var titleTwo = new StreamingContent("Star Wars", "Stars at War", 10f, MaturityRating.PG_13, GenreType.Documentary);
+            var titleThree = new StreamingContent("Baby Driver", "Your driver for the night is a baby", 48f, MaturityRating.MA, GenreType.Documentary);
+            var titleFour = new StreamingContent("Bananas", "The Banana strikes back", 20f, MaturityRating.PG, GenreType.SciFi);
+            var titleFive = new StreamingContent("Harry Potter", "Harry Makes Pottery", 42f, MaturityRating.PG,  GenreType.Fantasy);
+
+            Movie movieOne = new Movie();
+            Movie movieTwo = new Movie("Venom","Two Bros",9001,MaturityRating.NC_17,GenreType.RomCom,123);
+            Movie movieThree = new Movie("Another Movie", "Test Data", 1, MaturityRating.NC_17, GenreType.RomCom, 123);
+
+            _streamingRepo.AddContentToDirectory(movieOne);
+            _streamingRepo.AddContentToDirectory(movieTwo);
+            _streamingRepo.AddContentToDirectory(movieThree);
+
             _streamingRepo.AddContentToDirectory(titleOne);
             _streamingRepo.AddContentToDirectory(titleTwo);
             _streamingRepo.AddContentToDirectory(titleThree);
