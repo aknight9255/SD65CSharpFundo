@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09_Interfaces_WorkingWithDI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_StreamingContent_UIRefactor", "10_StreamingContent_UIRefactor\10_StreamingContent_UIRefactor.csproj", "{4542A868-3D88-4003-B8B5-FED1C3D2862C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10_StreamingContent_UiRefactor_Tests", "10_StreamingContent_UiRefactor_Tests\10_StreamingContent_UiRefactor_Tests.csproj", "{8BBBA869-3559-49DD-A730-B231F8D77653}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{4542A868-3D88-4003-B8B5-FED1C3D2862C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4542A868-3D88-4003-B8B5-FED1C3D2862C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4542A868-3D88-4003-B8B5-FED1C3D2862C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BBBA869-3559-49DD-A730-B231F8D77653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BBBA869-3559-49DD-A730-B231F8D77653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BBBA869-3559-49DD-A730-B231F8D77653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BBBA869-3559-49DD-A730-B231F8D77653}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

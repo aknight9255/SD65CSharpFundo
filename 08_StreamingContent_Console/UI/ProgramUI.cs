@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace _08_StreamingContent_Console.UI
 {
-    class ProgramUI
+    public class ProgramUI
     {
         private readonly IConsole _console;
         private readonly StreamingRepositorycs _streamingRepo = new StreamingRepositorycs();
