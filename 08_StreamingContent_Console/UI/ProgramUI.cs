@@ -32,15 +32,15 @@ namespace _08_StreamingContent_Console.UI
                 //Get all movies 
                 //get show/movie by title
 
-                Console.Clear();
-                Console.WriteLine("Enter the number of the option you'd like to select: \n" +
+                _console.Clear();
+                _console.WriteLine("Enter the number of the option you'd like to select: \n" +
                     "1) Show all streaming content \n" +
                     "2) Find by title \n" +
                     "3) Add new content \n" +
                     "4) Remove content \n" +
                     "5) Show All Movies \n" +
                     "6) Exit");
-                string userInput = Console.ReadLine();
+                string userInput = _console.ReadLine();
                 switch (userInput)
                 {
                     case "1":
@@ -69,9 +69,9 @@ namespace _08_StreamingContent_Console.UI
                         break;
                     default:
                         //default
-                        Console.WriteLine("Please enter a valid number between 1 and 5. \n" +
+                        _console.WriteLine("Please enter a valid number between 1 and 5. \n" +
                             "Press any key to continue......");
-                        Console.ReadKey();
+                        _console.ReadKey();
                         break;
                 }
             }
@@ -84,24 +84,24 @@ namespace _08_StreamingContent_Console.UI
             StreamingContent content = new StreamingContent();
             //Ask user for information 
             //Title
-            Console.WriteLine("Please enter the title of the new content");
-            string contentTitle = Console.ReadLine();
+            _console.WriteLine("Please enter the title of the new content");
+            string contentTitle = _console.ReadLine();
             content.Title = contentTitle;
             //Description
-            Console.WriteLine($"Please enter the description for {content.Title}");
-            content.Description = Console.ReadLine();
+            _console.WriteLine($"Please enter the description for {content.Title}");
+            content.Description = _console.ReadLine();
             //StarRating
-            Console.WriteLine($"Please enter the star rating for {content.Title}");
-            content.StarRating = float.Parse(Console.ReadLine());
+            _console.WriteLine($"Please enter the star rating for {content.Title}");
+            content.StarRating = float.Parse(_console.ReadLine());
             //Maturity Rating
-            Console.WriteLine("Select a Maturity Rating: \n" +
+            _console.WriteLine("Select a Maturity Rating: \n" +
                 "1) G \n" +
                 "2) PG \n" +
                 "3) PG 13 \n" +
                 "4) R \n" +
                 "5) NC 17 \n" +
                 "6) MA");
-            string maturityResponse = Console.ReadLine();
+            string maturityResponse = _console.ReadLine();
             switch (maturityResponse)
             {
                 case "1":
@@ -124,7 +124,7 @@ namespace _08_StreamingContent_Console.UI
                     break;
             }
             //TypeOfGenre
-            Console.WriteLine("Select a genre: \n" +
+            _console.WriteLine("Select a genre: \n" +
                 "1) Horror \n" +
                 "2) RomCom \n" +
                 "3) Fantasy \n" +
@@ -134,7 +134,7 @@ namespace _08_StreamingContent_Console.UI
                 "7) Action \n" +
                 "8) Documentary \n" +
                 "9) Thriller");
-            string genreResponse = Console.ReadLine();
+            string genreResponse = _console.ReadLine();
             int genreID = int.Parse(genreResponse);
             content.TypeOfGenre = (GenreType)genreID;
 
@@ -144,7 +144,7 @@ namespace _08_StreamingContent_Console.UI
         }
         private void ShowAllContent()
         {
-            Console.Clear();
+            _console.Clear();
             //GET the items from our fake database 
             List<StreamingContent> listOfContent = _streamingRepo.GetContents();
             //Take EACH item and display property values
@@ -153,17 +153,17 @@ namespace _08_StreamingContent_Console.UI
                 DisplaySimple(content);
             }
             //Pause the program so the user can see the printed objects
-            Console.WriteLine("Press any key to continue....");
-            Console.ReadKey();
+            _console.WriteLine("Press any key to continue....");
+            _console.ReadKey();
             //GOAL: Show all items in our fake database 
         }
         private void ShowContentByTitle()
         {
-            Console.Clear();
+            _console.Clear();
             //GOAL? Show only one object -> found by title
             //Step one Get title from user
-            Console.WriteLine("Please enter the title: ");
-            string title = Console.ReadLine();
+            _console.WriteLine("Please enter the title: ");
+            string title = _console.ReadLine();
             //use that title to find the ONE object -> we have built this method
             StreamingContent foundContent = _streamingRepo.GetContentByTitle(title);
             //If object found display data / if not inform user that title does not exist
@@ -173,27 +173,27 @@ namespace _08_StreamingContent_Console.UI
             }
             else
             {
-                Console.WriteLine("There are no titles that matched the one you gave me. \n" +
+                _console.WriteLine("There are no titles that matched the one you gave me. \n" +
                     "Do better");
             }
 
-            Console.WriteLine("Press any key to continue.....");
-            Console.ReadKey();
+            _console.WriteLine("Press any key to continue.....");
+            _console.ReadKey();
         }
         private void RemoveContentFromList()
         {
             //Ask the user which one they want to remove 
-            Console.WriteLine("Which item would you like to remove?");
+            _console.WriteLine("Which item would you like to remove?");
             //need a list of the items 
             List<StreamingContent> contentList = _streamingRepo.GetContents();
             int count = 0;
             foreach(var content in contentList)
             {
                 count++;
-                Console.WriteLine($"{count}) {content.Title}");
+                _console.WriteLine($"{count}) {content.Title}");
             }
             //take in user response 
-            int targetContentID = int.Parse(Console.ReadLine());
+            int targetContentID = int.Parse(_console.ReadLine());
             int correctIndex = targetContentID - 1;
             if(correctIndex >= 0 && correctIndex < contentList.Count)
             {
@@ -201,44 +201,44 @@ namespace _08_StreamingContent_Console.UI
                 //Remove that item 
                 if (_streamingRepo.DeleteExistingContent(desiredContent))
                 {
-                    Console.WriteLine($"{desiredContent.Title} successfully removed!");
+                    _console.WriteLine($"{desiredContent.Title} successfully removed!");
                 }
                 else
                 {
-                    Console.WriteLine("I'm sorry, Dave. I'm afriad I can't do that.");
+                    _console.WriteLine("I'm sorry, Dave. I'm afriad I can't do that.");
                 }
             }
             else
             {
-                Console.WriteLine("INVALID OPTION");
+                _console.WriteLine("INVALID OPTION");
             }
-            Console.WriteLine("Press any key to continue....");
-            Console.ReadKey();
+            _console.WriteLine("Press any key to continue....");
+            _console.ReadKey();
 
         
         }
         private void ShowAllMovies()
         {
-            Console.Clear();
+            _console.Clear();
             //GET all the movies 
             List<Movie> listOfMovie = _streamingRepo.GetAllMovies();
             foreach(var oneMovie in listOfMovie)
             {
                 DisplaySimple(oneMovie);
             }
-            Console.WriteLine("Press any key to continue....");
-            Console.ReadKey();
+            _console.WriteLine("Press any key to continue....");
+            _console.ReadKey();
         }
 
         private void DisplaySimple(StreamingContent content)
         {
-            Console.WriteLine($"{content.Title} \n" +
+            _console.WriteLine($"{content.Title} \n" +
                     $"{content.Description} \n" +
                     $"-----------------------");
         }
         private void DisplayAllProps(StreamingContent content)
         {
-            Console.WriteLine($"Title: {content.Title} \n" +
+            _console.WriteLine($"Title: {content.Title} \n" +
                 $"Description: {content.Description} \n" +
                 $"Genre: {content.TypeOfGenre} \n" +
                 $"Stars: {content.StarRating} \n" +
