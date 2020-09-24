@@ -1,4 +1,5 @@
 ﻿using _07_RepositoryPattern_Repository;
+using _10_StreamingContent_UIRefactor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,12 @@ namespace _08_StreamingContent_Console.UI
 {
     class ProgramUI
     {
+        private readonly IConsole _console;
         private readonly StreamingRepositorycs _streamingRepo = new StreamingRepositorycs();
+        public ProgramUI(IConsole console)
+        {
+            _console = console;
+        }
         public void Run()
         {
             SeedContent();
